@@ -1,0 +1,7 @@
+{
+    "Lua.workspace.library": {
+        "C:/Program Files/LOVE": true
+    },
+    "Lua.diagnostics.enable": true,
+    "Lua.workspace.checkThirdParty": false
+}
