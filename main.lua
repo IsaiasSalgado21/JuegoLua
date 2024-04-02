@@ -49,14 +49,30 @@ end
 --funciones principales para el movimiento
 function love.load()
     x = 100
+    y = 100
+    --creamos la variable move para usar un tipo booleano en nuestro codigo
+    move = true
 end
 --con esta funcion se va a estar actualizando la coordenada x de nuestro rectangulo
-function love.update()
-    x = x + 5
+--ahora vamos a usar tiempo delta (dt) para actualizar los fps de acuerdo al tiempo que se debe actualizar en
+--todas las computadoras 
+
+function love.update(dt)
+--usaremos el if para evitar que salga el rectangulo de nuestra interfaz, ~= diferente de
+--con la siguiente funcion haremos que se mueva con la flecha derecha, izquierda, arriba y abajo
+    if love.keyboard.isDown("right")then
+        x = x + 100 * dt
+    elseif love.keyboard.isDown("left")then
+        x = x - 100 * dt
+    elseif love.keyboard.isDown("up") then
+        y = y - 100 * dt
+    elseif love.keyboard.isDown("down") then
+        y = y + 100 * dt
+    end
 end
 --funcion para dibujar un rectangulo con lineas de color
 function love.draw()
-    love.graphics.rectangle("line", x, 50, 200, 150)
+    love.graphics.rectangle("line", x, y, 200, 150)
 end
 
 
