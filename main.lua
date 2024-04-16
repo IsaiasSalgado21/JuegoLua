@@ -2,6 +2,7 @@
 a=5
 b=8
 print(a+b)
+image = love.graphics.newImage("sprites/sprite_1.png")
 
 -- juntar strings con variables de tipo texto
 nombre = "isaias salgado"
@@ -37,21 +38,26 @@ print("----------------------------")
 --[[funcion para dibujar un hola mundo en love2d
 function love.draw()
     love.graphics.print("Hello World!", 400, 300)
-    end
+    end]]
 
---funcion para dibujar un rectangulo con color por dentro
+--[[funcion para dibujar un rectangulo con color por dentro
 function love.draw()
+
     love.graphics.rectangle("fill", 100, 200, 50, 90)
 end
 ]]
 
 
+
 --funciones principales para el movimiento
 function love.load()
+    
+   -- fruits{"manzana", "mandarinas"}
+   
     x = 100
     y = 100
     --creamos la variable move para usar un tipo booleano en nuestro codigo
-    move = true
+    move = true 
 end
 --con esta funcion se va a estar actualizando la coordenada x de nuestro rectangulo
 --ahora vamos a usar tiempo delta (dt) para actualizar los fps de acuerdo al tiempo que se debe actualizar en
@@ -69,10 +75,34 @@ function love.update(dt)
     elseif love.keyboard.isDown("down") then
         y = y + 100 * dt
     end
+
+    
 end
 --funcion para dibujar un rectangulo con lineas de color
 function love.draw()
-    love.graphics.rectangle("line", x, y, 200, 150)
+    --love.graphics.rectangle("line", x, y, 200, 150)
+    love.graphics.draw(image, x, y)
+    love.graphics.rectangle("fill", 0, 50, 25, 200)
 end
 
+--[[
+function love.load()
 
+    --creamos un tabla de nombre fruits
+    fruits = {"manzana", "mandarinas"}
+    --insetamos una nueva fruta a la tabla fruits
+    table.insert(fruits, "piña")
+    for i=1,10 do
+        print("hello", i)
+    end
+end
+function love.update()
+
+end
+function love.draw()
+    --aqui pintamos la tabla en la interfaz, llamando a cada variable contenida dentro de la tabla de forma individual
+    love.graphics.print(fruits[1], 100, 100)
+    love.graphics.print(fruits[2], 100, 125)
+    love.graphics.print(fruits[3], 100, 150)
+end
+]]
