@@ -4,7 +4,12 @@
         {
             "label": "Run Love2D",
             "type": "shell",
-            "command": "love ."
+            "command": "love .",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
